@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 
 export function Main() {
+	// Se crea un estado selected
 	const [selected, setSelected] = useState("");
-	const setColor = color => {
+
+	// Funcion para desactivar y asignar valor a selected
+	const handleColor = color => {
+		// Si se clickea el color actual
 		if (color === selected) {
+			// Se deja selected en vacio
 			setSelected("");
 		} else {
+			// Si se clickea otro color, se asigna un nuevo valor
 			setSelected(color);
 		}
 	};
@@ -16,23 +22,24 @@ export function Main() {
 			<div className="container">
 				<div
 					className={
+						// Si select no es igual a este
 						selected !== "red" ? "red light" : "red light selected"
 					}
-					onClick={() => setColor("red")}></div>
+					onClick={() => handleColor("red")}></div>
 				<div
 					className={
 						selected !== "yellow"
 							? "yellow light"
 							: "yellow light selected"
 					}
-					onClick={() => setColor("yellow")}></div>
+					onClick={() => handleColor("yellow")}></div>
 				<div
 					className={
 						selected !== "green"
 							? "green light"
 							: "green light selected"
 					}
-					onClick={() => setColor("green")}></div>
+					onClick={() => handleColor("green")}></div>
 			</div>
 		</>
 	);
